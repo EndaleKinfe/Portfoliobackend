@@ -1,0 +1,21 @@
+const myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "image_link": "75 sadaf ag ",
+  "description": "javaicon",
+  "title": "icon nam"
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("http://localhost/portfoliobackend/index.php/carosels/list", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
