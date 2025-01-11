@@ -20,12 +20,6 @@ const Projects = () => {
             liveLink="#"
         />
         }
-        <ProjectCard title="loading"
-            year="loading"
-            description="loading"
-            repoLink="#"
-            liveLink="#"
-        />
         {
             error &&<div>Error Occured while loading</div>
         }

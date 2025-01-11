@@ -18,10 +18,6 @@ const Skills = () => {
         />
 
         }
-        <SkillCard name="loading"
-            experise="40"
-            
-        />
         {
             error &&<div>Error Occured while loading</div>
         }

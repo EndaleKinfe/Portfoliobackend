@@ -20,10 +20,6 @@ const Sections = () => {
         {
             error &&<div>Error Occured while loading</div>
         }
-        <ServiceCard name="loading"
-           
-            description="loading"
-        />
         {
             data && data.map((service)=>{
                 return(

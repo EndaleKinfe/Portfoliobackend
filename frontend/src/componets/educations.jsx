@@ -23,15 +23,7 @@ const Educations = () => {
             details="loading"
             studyField="loading"
         />
-        } <EducationCard 
-            type="loading"
-            institution="loading"
-            gpa="loading"
-            startDate="loading"
-            finihsDate="loading"
-            details="loading"
-            studyField="loading"
-        />
+        } 
         {
             error &&<div>Error Occured while loading</div>
         }

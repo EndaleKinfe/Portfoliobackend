@@ -1,28 +1,27 @@
-import useFetch from "../../useFetch";
 import Navbar from "./NavbarAdmin";
-const Messageshow = () => {
+import useFetch from "../../useFetch"
+const EmailAdmin = () => {
     const requestOptions = {
   method: "GET",
   redirect: "follow"
 }
-    const {data, error, isLoading} = useFetch("http://localhost/portfoliobackend/index.php/messages/list", requestOptions);
+const {data, error, isLoading} = useFetch("http://localhost/portfoliobackend/index.php/services/list", requestOptions);
     return ( 
         <>
         <Navbar/>
-        <table className="w-5/6">
+        <h1>newsletter subscribers list</h1>
+        <table className="w-3/4 my-8 ">
             <thead>
-                <tr className="*:font-bold">
+                <tr>
                 <td>id</td>
-                <td>first name</td>
-                <td>last name</td>
+                <td>name</td>
                 <td>email</td>
-                <td>message</td>
+                <td>is_subscribed</td>
                 </tr>
             </thead>
             <tbody>
         {isLoading &&
             <tr>
-                        <td>loading</td>
                         <td>loading</td>
                         <td>loading</td>
                         <td>loading</td>
@@ -35,18 +34,18 @@ const Messageshow = () => {
                 return(
                     <tr>
                         <td>{row.id}</td>
-                        <td>{row.firstName}</td>
-                        <td>{row.lastName}</td>
-                        <td>{row.email}</td>
-                        <td>{row.messageText}</td>
+                        <td>{row.name}</td>
+                        <td>{row.emailText}</td>
+                        <td>{row.isSubscribed}</td>
+                        
                     </tr>
                 )
             })
         }
         </tbody>
-    </table>
-        </>
-     );
+        </table>
+
+</>)
 }
  
-export default Messageshow;
+export default EmailAdmin;

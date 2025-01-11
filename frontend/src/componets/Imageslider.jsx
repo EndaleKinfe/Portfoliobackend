@@ -41,11 +41,7 @@ const ImageSlider = () => {
                 slideText={currentObject?.title} 
             />
             }
-            <Slides 
-                slideId={1}
-                slideCount={1}
-                slideText={"this is me"} 
-            />
+
             {/* Next and previous buttons */}
             <a className="text-2xl text-white absolute top-1/2 left-4 hover:bg-slate-800 p-2 rounded-sm" onClick={()=>handleSlide(currentSlide - 1)}>❮</a>
             <a className="text-2xl text-white absolute top-1/2 right-4 hover:bg-slate-800 rounded-sm p-2 " onClick={()=>handleSlide(currentSlide + 1)}>❯</a>

@@ -20,13 +20,7 @@ const Experences = () => {
                    finihsDate="loading"
         />
         }
-        <ExperenceCard 
-                    position="loading"
-                   company="loading"
-                    description="loading"
-                   startDate="loading"
-                   finihsDate="loading"
-        />
+       
         {
             error &&<div>Error Occured while loading</div>
         }
