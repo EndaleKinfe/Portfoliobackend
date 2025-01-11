@@ -24,7 +24,7 @@ const ContactCreate = () => {
         myHeaders.append("Content-Type", "application/json");
 
         let raw = JSON.stringify({
-                        "title":  type,
+                        "type":  type,
                         "contact_info": contactInfo,
                         "icon": icon,
                         });

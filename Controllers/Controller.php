@@ -24,7 +24,7 @@ class Controller
     {
         header_remove("Set-Cookie");
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: GET, POST, PUT , DELETE");
+        header("Access-Control-Allow-Methods: GET, POST, PUT , DELETE, OPTION, HEAD");
         header("Access-Control-Allow-Headers: Content-Type, Authorization, Accept");
         if (is_array($httpHeaders) && count($httpHeaders)) {
             foreach ($httpHeaders as $header) {

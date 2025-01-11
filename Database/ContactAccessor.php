@@ -45,9 +45,12 @@ class ContactAccessor extends Database{
         $query = "INSERT INTO contacts(type,contact_info,icon ) VALUES(:type,:contact_info, :icon)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":type", $contact->get_type());
-        $statment->bindParam(":contact_info", $contact->get_contact_info());
-        $statment->bindParam(":icon", $contact->get_icon());
+        $ty = $contact->get_type();
+        $ci = $contact->get_contact_info();
+        $ic = $contact->get_icon();
+        $statment->bindParam(":type", $ty);
+        $statment->bindParam(":contact_info", $ci);
+        $statment->bindParam(":icon", $ic);
         $statment->execute();
     }
 
@@ -56,10 +59,14 @@ class ContactAccessor extends Database{
         $query = "UPDATE contacts SET type = :type ,contact_info= :contact_info,  icon = :icon WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $contact->get_id());
-        $statment->bindParam(":type", $contact->get_type());
-        $statment->bindParam(":contact_info", $contact->get_contact_info());
-        $statment->bindParam(":icon", $contact->get_icon());
+        $id = $contact->get_id();
+        $ty = $contact->get_type();
+        $ci = $contact->get_contact_info();
+        $ic = $contact->get_icon();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":type", $ty );
+        $statment->bindParam(":contact_info",$ci );
+        $statment->bindParam(":icon",$ic );
 
         $statment->execute();
     }

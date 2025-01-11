@@ -46,9 +46,12 @@ class SkillAccessor extends Database{
         $query = "INSERT INTO skills(name,expertiselevel,iconname ) VALUES(:name,:expertiselevel, :iconname)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":name", $skill->get_name());
-        $statment->bindParam(":expertiselevel", $skill->get_expertise());
-        $statment->bindParam(":iconname", $skill->get_icon());
+        $na = $skill->get_name();
+        $ex = $skill->get_expertise();
+        $ic = $skill->get_icon();
+        $statment->bindParam(":name", $na);
+        $statment->bindParam(":expertiselevel", $ex);
+        $statment->bindParam(":iconname", $ic);
         $statment->execute();
     }
 
@@ -57,10 +60,14 @@ class SkillAccessor extends Database{
         $query = "UPDATE skills SET name = :name ,expertiselevel= :expertiselevel,  iconname = :iconname WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $skill->get_id());
-        $statment->bindParam(":name", $skill->get_name());
-        $statment->bindParam(":expertiselevel", $skill->get_expertise());
-        $statment->bindParam(":iconname", $skill->get_icon());
+        $id = $skill->get_id();
+        $na = $skill->get_name();
+        $ex = $skill->get_expertise();
+        $ic = $skill->get_icon();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":name", $na);
+        $statment->bindParam(":expertiselevel", $ex);
+        $statment->bindParam(":iconname", $ic );
 
         $statment->execute();
     }

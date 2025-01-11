@@ -47,10 +47,14 @@ class MessageAccessor extends Database{
         $query = "INSERT INTO messages(email,first_name,last_name,messages ) VALUES(:email,:first_name,:last_name, :messagetext)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":email", $message->get_email());
-        $statment->bindParam(":first_name", $message->get_first_name());
-        $statment->bindParam(":last_name", $message->get_last_name());
-        $statment->bindParam(":messagetext", $message->get_messagetext());
+        $em = $message->get_email();
+        $fn = $message->get_first_name();
+        $ln = $message->get_last_name();
+        $mt = $message->get_messagetext();
+        $statment->bindParam(":email", $em);
+        $statment->bindParam(":first_name", $fn);
+        $statment->bindParam(":last_name", $ln);
+        $statment->bindParam(":messagetext", $mt);
         $statment->execute();
     }
 
@@ -59,11 +63,16 @@ class MessageAccessor extends Database{
         $query = "UPDATE messages SET email = :email ,first_name,= :first_name,last_name = :lastf_name , message_text = :messagetext WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $message->get_id());
-        $statment->bindParam(":email", $message->get_email());
-        $statment->bindParam(":first_name", $message->get_first_name());
-        $statment->bindParam(":last_name", $message->get_last_name());
-        $statment->bindParam(":messagetext", $message->get_messagetext());
+        $id  =$message->get_id();
+        $em = $message->get_email();
+        $fn =$message->get_first_name();
+        $ln =$message->get_last_name();
+        $mt = $message->get_messagetext();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":email", $em );
+        $statment->bindParam(":first_name", $fn );
+        $statment->bindParam(":last_name",$ln );
+        $statment->bindParam(":messagetext",$mt );
 
         $statment->execute();
     }

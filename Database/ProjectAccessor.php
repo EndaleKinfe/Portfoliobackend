@@ -49,11 +49,16 @@ class ProjectAccessor extends Database{
         $query = "INSERT INTO projects(title,year,repository_link, live_link, description ) VALUES(:title,:year, :repository_link, :live_link, :description)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":title", $project->get_title());
-        $statment->bindParam(":year", $project->get_year());
-        $statment->bindParam(":description", $project->get_description());
-        $statment->bindParam(":repository_link", $project->get_repository_link());
-        $statment->bindParam(":live_link", $project->get_live_link());
+        $ti =  $project->get_title();
+        $ye = $project->get_year();
+        $de = $project->get_description();
+        $re = $project->get_repository_link();
+        $li = $project->get_live_link();
+        $statment->bindParam(":title", $ti);
+        $statment->bindParam(":year", $ye);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":repository_link", $re);
+        $statment->bindParam(":live_link", $li);
         $statment->execute();
     }
 
@@ -62,12 +67,18 @@ class ProjectAccessor extends Database{
         $query = "UPDATE projects SET title = :title ,year= :year,  repository_link = :repository_link , live_link = :live_link , description = :description WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $project->get_id());
-        $statment->bindParam(":title", $project->get_title());
-        $statment->bindParam(":year", $project->get_year());
-        $statment->bindParam(":description", $project->get_description());
-        $statment->bindParam(":repository_link", $project->get_repository_link());
-        $statment->bindParam(":live_link", $project->get_live_link());
+        $id = $project->get_id();
+        $ti =  $project->get_title();
+        $ye = $project->get_year();
+        $de = $project->get_description();
+        $re = $project->get_repository_link();
+        $li = $project->get_live_link();
+        $statment->bindParam(":id", $id );
+        $statment->bindParam(":title", $ti);
+        $statment->bindParam(":year", $ye);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":repository_link", $re);
+        $statment->bindParam(":live_link", $li);
         $statment->execute();
     }
 

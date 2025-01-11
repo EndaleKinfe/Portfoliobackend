@@ -24,14 +24,16 @@ const ServiceEdit = () => {
         const myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
         myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("Access-Control-Allow-Headers", "Content-Type");
+        myHeaders.append("Access-Control-Allow-Origin", "*");
 
         let raw = JSON.stringify({
-                        "title":  name,
+                        "name":  name,
                         "description": description,
-                        "image_link": iconname,
+                        "iconname": iconname,
                         "id": id 
                         });
-
+                        console.log(raw);
         const requestOptions = {
         method: reqMethod,
         headers: myHeaders,

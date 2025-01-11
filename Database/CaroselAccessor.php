@@ -45,9 +45,12 @@ class CaroselAccessor extends Database {
         $query = "INSERT INTO carsols(title,description,image_link ) VALUES(:title,:description, :image_link)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":title", $carosel->get_title());
-        $statment->bindParam(":description", $carosel->get_description());
-        $statment->bindParam(":image_link", $carosel->get_image_link());
+        $ti = $carosel->get_title();
+        $de = $carosel->get_description();
+        $il = $carosel->get_image_link();
+        $statment->bindParam(":title", $ti);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":image_link", $il);
         $statment->execute();
     }
 
@@ -56,10 +59,14 @@ class CaroselAccessor extends Database {
         $query = "UPDATE carsols SET title = :title ,description= :description,  image_link = :image_link WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $carosel->get_id());
-        $statment->bindParam(":title", $carosel->get_title());
-        $statment->bindParam(":description", $carosel->get_description());
-        $statment->bindParam(":image_link", $carosel->get_image_link());
+        $id = $carosel->get_id();
+        $ti = $carosel->get_title();
+        $de = $carosel->get_description();
+        $il = $carosel->get_image_link();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":title", $ti);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":image_link", $il);
 
         $statment->execute();
     }

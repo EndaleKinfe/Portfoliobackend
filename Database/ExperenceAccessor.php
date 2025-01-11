@@ -49,11 +49,16 @@ class ExperenceAccessor extends Database{
         $query = "INSERT INTO experences(position,company, start_date, finish_date,description ) VALUES(:position,:company,:start_date, :finish_date, :description)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":position", $experence->get_position());
-        $statment->bindParam(":company", $experence->get_company());
-        $statment->bindParam(":description", $experence->get_description());
-        $statment->bindParam(":start_date", $experence->get_start_date());
-        $statment->bindParam(":finish_date", $experence->get_finish_date());
+        $po = $experence->get_position();
+        $co = $experence->get_company();
+        $de = $experence->get_description();
+        $sd = $experence->get_start_date();
+        $fd = $experence->get_finish_date();
+        $statment->bindParam(":position", $po);
+        $statment->bindParam(":company", $co);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":start_date", $sd);
+        $statment->bindParam(":finish_date", $fd);
         $statment->execute();
     }
 
@@ -62,12 +67,18 @@ class ExperenceAccessor extends Database{
         $query = "UPDATE experences SET position = :position ,company= :company,  start_date = :start_date , finish_date = :finish_date , description = :description WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $experence->get_id());
-        $statment->bindParam(":position", $experence->get_position());
-        $statment->bindParam(":company", $experence->get_company());
-        $statment->bindParam(":description", $experence->get_description());
-        $statment->bindParam(":start_date", $experence->get_start_date());
-        $statment->bindParam(":finish_date", $experence->get_finish_date());
+        $id = $experence->get_id();
+        $po =$experence->get_position();
+        $co = $experence->get_company();
+        $de = $experence->get_description();
+        $sd = $experence->get_start_date();
+        $fd = $experence->get_finish_date();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":position", $po);
+        $statment->bindParam(":company", $co);
+        $statment->bindParam(":description", $de);
+        $statment->bindParam(":start_date", $sd );
+        $statment->bindParam(":finish_date", $fd );
         $statment->execute();
     }
 

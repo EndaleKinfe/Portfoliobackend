@@ -45,9 +45,12 @@ class EmailAccessor extends Database{
         $query = "INSERT INTO emails(name,email,is_subscribed ) VALUES(:name,:email_text, :issubscribed)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":name", $email->get_name());
-        $statment->bindParam(":email_text", $email->get_email_text());
-        $statment->bindParam(":issubscribed", $email->get_is_subscribed());
+        $na = $email->get_name();
+        $et = $email->get_email_text();
+        $is = $email->get_is_subscribed();
+        $statment->bindParam(":name", $na);
+        $statment->bindParam(":email_text", $et);
+        $statment->bindParam(":issubscribed", $is);
         $statment->execute();
     }
 
@@ -56,10 +59,14 @@ class EmailAccessor extends Database{
         $query = "UPDATE emails SET name = :name ,email= :email_text,  is_subscribed = :issubscribed WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $email->get_id());
-        $statment->bindParam(":name", $email->get_name());
-        $statment->bindParam(":email_text", $email->get_email_text());
-        $statment->bindParam(":issubscribed", $email->get_is_subscribed());
+        $id =$email->get_id();
+        $na = $email->get_name();
+        $et = $email->get_email_text();
+        $is = $email->get_is_subscribed();
+        $statment->bindParam(":id", $id );
+        $statment->bindParam(":name", $na);
+        $statment->bindParam(":email_text", $et);
+        $statment->bindParam(":issubscribed", $is);
 
         $statment->execute();
     }

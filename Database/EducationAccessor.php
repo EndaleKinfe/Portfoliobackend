@@ -53,13 +53,20 @@ class EducationAccessor extends Database{
         $query = "INSERT INTO educations(type,institution, gpa, study_field, start_date, finish_date, details ) VALUES(:type,:institution, :gpa, :study_field, :start_date, :finish_date, :details)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":type", $education->get_type());
-        $statment->bindParam(":details", $education->get_details());
-        $statment->bindParam(":institution", $education->get_institution());
-        $statment->bindParam(":gpa", $education->get_gpa());
-        $statment->bindParam(":study_field", $education->get_study_field());
-        $statment->bindParam(":start_date", $education->get_start_date());
-        $statment->bindParam(":finish_date", $education->get_finish_date());
+        $ty = $education->get_type();
+        $dt = $education->get_details();
+        $in = $education->get_institution();
+        $gp = $education->get_gpa();
+        $sf  = $education->get_study_field();
+        $sd = $education->get_start_date();
+        $fd = $education->get_finish_date();
+        $statment->bindParam(":type", $ty);
+        $statment->bindParam(":details", $dt);
+        $statment->bindParam(":institution", $in);
+        $statment->bindParam(":gpa", $gp);
+        $statment->bindParam(":study_field", $sf);
+        $statment->bindParam(":start_date", $sd);
+        $statment->bindParam(":finish_date", $fd);
         $statment->execute();
     }
 
@@ -68,14 +75,22 @@ class EducationAccessor extends Database{
         $query = "UPDATE educations SET type = :type ,institution= :institution, gpa = :gpa, study_field = :study_field, start_date = :start_date , finish_date = :finish_date, details = :details  WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $education->get_id());
-        $statment->bindParam(":type", $education->get_type());
-        $statment->bindParam(":details", $education->get_details());
-        $statment->bindParam(":institution", $education->get_institution());
-        $statment->bindParam(":gpa", $education->get_gpa());
-        $statment->bindParam(":study_field", $education->get_study_field());
-        $statment->bindParam(":start_date", $education->get_start_date());
-        $statment->bindParam(":finish_date", $education->get_finish_date());
+        $id = $education->get_id();
+        $ty = $education->get_type();
+        $dt = $education->get_details();
+        $in = $education->get_institution();
+        $gp = $education->get_gpa();
+        $sf  = $education->get_study_field();
+        $sd = $education->get_start_date();
+        $fd = $education->get_finish_date();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":type",$ty );
+        $statment->bindParam(":details", $dt);
+        $statment->bindParam(":institution", $in);
+        $statment->bindParam(":gpa", $gp);
+        $statment->bindParam(":study_field", $sf);
+        $statment->bindParam(":start_date", $sd );
+        $statment->bindParam(":finish_date",$fd );
         $statment->execute();
     }
 

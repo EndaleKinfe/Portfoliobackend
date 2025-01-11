@@ -41,9 +41,12 @@ class UserAccessor extends Database{
         $query = "INSERT INTO users(username, password, email) VALUES(:username, :password, :email)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":username", $user->get_username());
-        $statment->bindParam(":password", $user->get_pass());
-        $statment->bindParam(":email", $user->get_email());
+        $pa = $user->get_pass();
+        $un =  $user->get_username();
+        $em = $user->get_email();
+        $statment->bindParam(":username", $un);
+        $statment->bindParam(":email", $em);
+        $statment->bindParam(":password", $pa);
         $statment->execute();
     }
 
@@ -52,9 +55,12 @@ class UserAccessor extends Database{
         $query = "UPDATE users SET username = :username, email = :email WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $user->get_id());
-        $statment->bindParam(":username", $user->get_username());
-        $statment->bindParam(":email", $user->get_email());
+        $id = $user->get_id();
+        $un =  $user->get_username();
+        $em = $user->get_email();
+        $statment->bindParam(":id", $id);
+        $statment->bindParam(":username",$un);
+        $statment->bindParam(":email", $em);
         $statment->execute();
     }
 

@@ -43,9 +43,13 @@ class ServiceAccessor extends Database{
         $query = "INSERT INTO services(name,description,iconname ) VALUES(:name,:description, :iconname)";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":name", $service->get_name());
-        $statment->bindParam(":description", $service->get_description());
-        $statment->bindParam(":iconname", $service->get_icon());
+
+        $i = $service->get_name();
+        $d = $service->get_description();
+        $ic = $service->get_icon();
+        $statment->bindParam(":name", $i);
+        $statment->bindParam(":description", $d);
+        $statment->bindParam(":iconname", $ic);
         $statment->execute();
     }
 
@@ -54,10 +58,14 @@ class ServiceAccessor extends Database{
         $query = "UPDATE services SET name = :name ,description= :description,  iconname = :iconname WHERE id = :id";
         $this->connect();
         $statment  = $this->connection->prepare($query);
-        $statment->bindParam(":id", $service->get_id());
-        $statment->bindParam(":name", $service->get_name());
-        $statment->bindParam(":description", $service->get_description());
-        $statment->bindParam(":iconname", $service->get_icon());
+        $s = $service->get_id();
+        $i = $service->get_name();
+        $d = $service->get_description();
+        $ic = $service->get_icon();
+        $statment->bindParam(":id", $s);
+        $statment->bindParam(":name", $i);
+        $statment->bindParam(":description", $d);
+        $statment->bindParam(":iconname",$ic);
 
         $statment->execute();
     }

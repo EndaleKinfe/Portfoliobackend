@@ -24,9 +24,9 @@ const ServiceCreate = () => {
         myHeaders.append("Content-Type", "application/json");
 
         let raw = JSON.stringify({
-                        "title":  name,
+                        "name":  name,
                         "description": description,
-                        "image_link": iconname,
+                        "iconname": iconname,
                         });
 
         const requestOptions = {
