@@ -1,11 +1,12 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const UserEdit = () => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState(""); 
-    const {id} = useParams()
+    const {id} = useParams();
+    const navigate = useNavigate();
 
     function handelusename(e){
         setUserName(e.target.value);
@@ -42,7 +43,7 @@ const UserEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/users")
     }
 
     return ( <>

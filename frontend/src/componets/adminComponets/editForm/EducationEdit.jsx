@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const EducationEdit = () => {
@@ -12,6 +12,7 @@ const EducationEdit = () => {
     const [startdate, setStartDate] = useState("");
     const [enddate, setEndDate]  = useState("");
     const {id} = useParams()
+    const navigate = useNavigate();
 
     function handleType(e){
         setType(e.target.value);
@@ -71,7 +72,7 @@ const EducationEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/educations")
     }
 
     return ( <><Navbar/> <h1 className="text-3xl text-center my-10 text-purple-400" >Edit Education</h1>

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "../NavbarAdmin";
+import { useNavigate } from "react-router";
 
 const SkillCreate = () => {
     const [name, setname] = useState("");
     const [expertiseLevel, setExpertiseLevel] = useState("");
     const [iconName, setIconName] = useState("") 
+    const navigate = useNavigate();
 
     function handlename(e){
         setname(e.target.value);
@@ -43,7 +45,7 @@ const SkillCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/skills")
     }
 
     return ( <>

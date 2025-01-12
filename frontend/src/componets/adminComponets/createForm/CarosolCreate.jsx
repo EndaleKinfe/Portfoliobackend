@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "../NavbarAdmin";
+import { useNavigate } from "react-router";
 
 const CarosolCreate = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [imageLink, setImageLink] = useState("") 
+    const navigate = useNavigate();
 
     function handleTitle(e){
         setTitle(e.target.value);
@@ -26,7 +28,7 @@ const CarosolCreate = () => {
         let raw = JSON.stringify({
                         "title":  title,
                         "description": description,
-                        "image_link": icon,
+                        "image_link": imageLink,
                         });
 
         const requestOptions = {
@@ -43,7 +45,7 @@ const CarosolCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/carosols")
     }
 
     return ( <>

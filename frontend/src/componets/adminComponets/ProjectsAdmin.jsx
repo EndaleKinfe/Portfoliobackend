@@ -11,12 +11,12 @@ const ProjectsAdmin = () => {
         <>
         <Navbar/>
         <div className="flex justify-between">
-        <h1>projects list</h1>
-        <Link to="/admin/projects/create"><button className="w-16 h-11 bg-orange-400">+ Add</button></Link>
+        <h1 className="text-3xl text-center my-10 text-purple-400">projects list</h1>
+        <Link to="/admin/projects/create"className="my-10"><button className="w-20 h-10 bg-orange-400 rounded-lg">+ Add</button></Link>
         </div>
         <table className="w-3/4 my-8 ">
             <thead>
-                <tr>
+                <tr className="*:font-bold">
                 <td>id</td>
                 <td>title</td>
                 <td>year</td>
@@ -42,7 +42,7 @@ const ProjectsAdmin = () => {
             data.map((row)=>{
                 console.log(row)
                 return(
-                    <tr>
+                    <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.title}</td>
                         <td>{row.year}</td>

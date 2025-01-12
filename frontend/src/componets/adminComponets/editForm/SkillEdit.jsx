@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const SkillEdit = () => {
@@ -7,6 +7,7 @@ const SkillEdit = () => {
     const [expertiseLevel, setExpertiseLevel] = useState("");
     const [iconName, setIconName] = useState("") 
     const {id} = useParams()
+    const navigate = useNavigate();
 
     function handlename(e){
         setname(e.target.value);
@@ -46,7 +47,7 @@ const SkillEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/skills")
     }
 
     return ( <>

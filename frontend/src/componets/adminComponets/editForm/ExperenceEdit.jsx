@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const ExperenceEdit = () => {
@@ -9,6 +9,7 @@ const ExperenceEdit = () => {
     const [startdate, setStartDate] = useState("");
     const [enddate, setEndDate]  = useState("");
     const {id} = useParams()
+    const navigate = useNavigate();
 
     function handlePosition(e){
         setPosition(e.target.value);
@@ -57,7 +58,7 @@ const ExperenceEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+            navigate("/admin/experencess")
     }
 
     return ( <>

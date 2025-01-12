@@ -1,14 +1,15 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const ProjectEdit = () => {
     const [title, setTitle] = useState("");
-    const {year, setYear } = useState("");
+    const [year, setYear ] = useState("");
     const [description, setDescription] = useState("");
     const [repoLink, setRepoLink] = useState("");
     const [liveLink, setLiveLink]  = useState("");
     const {id} = useParams()
+    const navigate = useNavigate();
 
     function handleTitle(e){
         setTitle(e.target.value);
@@ -57,6 +58,7 @@ const ProjectEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
+            navigate("/admin/projects")
        
     }
 

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "../NavbarAdmin";
+import { useNavigate } from "react-router";
 
 const ContactCreate = () => {
     const [type, setType] = useState("");
     const [contactInfo, setDescription] = useState("");
     const [icon, setIcon] = useState("") 
+    const navigate = useNavigate();
 
     function handleType(e){
         setType(e.target.value);
@@ -43,7 +45,7 @@ const ContactCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/contacts")
     }
 
     return ( <>

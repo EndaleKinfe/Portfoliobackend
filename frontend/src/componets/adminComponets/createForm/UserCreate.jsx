@@ -1,11 +1,12 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const UserCreate = () => {
     const [username, setUserName] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("") 
+    const [password, setPassword] = useState("")
+    const navigate = useNavigate(); 
 
     function handelusename(e){
         setUserName(e.target.value);
@@ -44,7 +45,7 @@ const UserCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/users")
     }
 
     return ( <>
@@ -62,7 +63,7 @@ const UserCreate = () => {
                 value={email}/>
 
                 <input className='border-solid border-purple-400 items-center w-5/6 mb-5 text-slate-700 h-10 p-2 rounded-md md:w-96' onChange={handlePassword} 
-                type="email" 
+                type="password" 
                 placeholder="password" 
                 value={password}/>
                 <button className='w-1/2 bg-orange-400 h-10 rounded-md' type="submit">Create</button>

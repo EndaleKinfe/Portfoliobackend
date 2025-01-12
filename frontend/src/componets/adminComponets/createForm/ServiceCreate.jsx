@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Navbar from "../NavbarAdmin";
+import { useNavigate } from "react-router";
 
 const ServiceCreate = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [iconname, setIconName] = useState("");
+    const navigate = useNavigate();
 
     function handleName(e){
         setName(e.target.value);
@@ -43,7 +45,7 @@ const ServiceCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/services")
     }
 
     return ( <>

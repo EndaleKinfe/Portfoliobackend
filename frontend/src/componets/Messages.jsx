@@ -46,6 +46,11 @@ const Message = () => {
             } catch (error) {
             console.error('Error:', error);
             }
+
+            setFname("");
+            setLname("");
+            setEmail("");
+            setText("");
        
     }
     return ( <section className="bg-slate-200 py-7 w-full h-screen">

@@ -10,13 +10,13 @@ const EducationAdmin = () => {
     return ( 
         <>
         <Navbar/>
-        <div className="flex justify-between">
-        <h1>education list</h1>
-        <Link to="/admin/educations/create"><button className="w-16 h-11 bg-orange-400">+ Add</button></Link>
+        <div className="flex justify-around gap-10">
+        <h1 className="text-3xl text-center my-10 text-purple-400">education list</h1>
+        <Link to="/admin/educations/create"className="my-10"><button className="w-20 h-10 bg-orange-400 rounded-lg">+ Add</button></Link>
         </div>
         <table className="w-3/4 my-8 ">
             <thead>
-                <tr>
+                <tr className="*:font-bold">
                 <td>id</td>
                 <td>type</td>
                 <td>institution</td>
@@ -46,7 +46,7 @@ const EducationAdmin = () => {
             data.map((row)=>{
                 console.log(row)
                 return(
-                    <tr>
+                    <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.type}</td>
                         <td>{row.institution}</td>

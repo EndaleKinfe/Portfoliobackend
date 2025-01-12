@@ -8,7 +8,7 @@ const NewsLetter = () => {
     function handelName(e){
         setText(e.target.value);
     }
-    function  handlesubmit(e) {
+    const   handlesubmit = async (e) => {
         e.preventDefault();
         const myHeaders = new Headers();
         myHeaders.append("Accept", "application/json");
@@ -27,7 +27,16 @@ const NewsLetter = () => {
         redirect: "follow"
         };
 
-        a = useFetch(url, requestOptions);
+        try {
+            const response = await fetch("http://localhost/portfoliobackend/index.php/emails/list",requestOptions);
+            const result = await response.json();
+            console.log('Success:', result);
+            } catch (error) {
+            console.error('Error:', error);
+            }
+        
+            setEmail("");
+            setText("");
     }
     return ( <section className="w-full min-h-screen">
         <h1 className="text-4xl text-center my-10 text-purple-400" >Signup to my yearly newsletter</h1>

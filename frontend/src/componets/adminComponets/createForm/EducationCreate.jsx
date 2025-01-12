@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from "../NavbarAdmin";
+import { useNavigate } from "react-router";
 
 const EducationCreate = () => {
 
@@ -10,6 +11,7 @@ const EducationCreate = () => {
     const [description, setDescription] = useState("");
     const [startdate, setStartDate] = useState("");
     const [enddate, setEndDate]  = useState("");
+    const navigate = useNavigate();
 
 
     function handleType(e){
@@ -69,7 +71,7 @@ const EducationCreate = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/educations")
     }
 
     return ( <><Navbar/> <h1 className="text-3xl text-center my-10 text-purple-400" >Create Education</h1>

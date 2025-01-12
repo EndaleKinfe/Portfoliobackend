@@ -9,6 +9,9 @@ const Messageshow = () => {
     return ( 
         <>
         <Navbar/>
+       
+        <h1 className="text-3xl text-center my-10 text-purple-400">messages list</h1>
+    
         <table className="w-5/6">
             <thead>
                 <tr className="*:font-bold">
@@ -33,7 +36,7 @@ const Messageshow = () => {
             data.map((row)=>{
                 console.log(row)
                 return(
-                    <tr>
+                    <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.firstName}</td>
                         <td>{row.lastName}</td>

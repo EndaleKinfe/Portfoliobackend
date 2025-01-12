@@ -9,7 +9,15 @@ const About = () => {
                     <img className="object-cover h-full" src="11zon_cropped.jpeg" alt="" />
                 </div>
                 <div className="text-pretty px-3 w-96">
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi ratione mollitia deleniti illum amet sed, obcaecati veniam incidunt, iusto quasi beatae voluptate minima laboriosam laborum earum vitae officiis assumenda temporibus magni, fugiat ullam. Ducimus officiissdfasdfsadfad fad modi amet ea, nulla sed voluptatem, quos totam omnis necessitatibus error perferendis esse a vero.</p>
+                    <p>Hello! I'm a passionate and dedicated developer currently expanding my expertise in web and desktop application development. I have a solid foundation in PHP and am actively learning Laravel to build modern, scalable web applications. I’m also diving into REST API development with PHP, focusing on creating efficient and reliable services.
+
+On the desktop side, I’m exploring WPF and XAML for C# development, using insights from Pro C# by Andrew Troelsen to build user-friendly and visually appealing applications.
+
+Additionally, I'm beginning to explore Docker to enhance my development workflow and deploy applications more effectively.
+
+I thrive on learning new technologies and turning ideas into functional solutions. My goal is to continue growing as a developer and contribute to impactful projects.
+
+Let’s connect and build something great together!</p>
                 </div>
             </div>
         </section>

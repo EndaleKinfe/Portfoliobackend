@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import Navbar from "../NavbarAdmin";
 
 const CarosolEdit = () => {
@@ -7,7 +7,8 @@ const CarosolEdit = () => {
     const [description, setDescription] = useState("");
     const [imageLink, setImageLink] = useState("") 
     const {id} = useParams()
-    const [response , setResponse] = useState(null);
+    const [response , setResponse] = useState("");
+    const navigate = useNavigate();
 
     function handleTitle(e){
         setTitle(e.target.value);
@@ -48,7 +49,7 @@ const CarosolEdit = () => {
             } catch (error) {
             console.error('Error:', error);
             }
-       
+       navigate("/admin/carosols")
     }
 
     return ( <>

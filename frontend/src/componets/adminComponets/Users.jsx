@@ -10,13 +10,13 @@ const Users = () => {
     return ( 
         <>
         <Navbar/>
-        <div className="flex justify-between">
-        <h1>users list</h1>
+        <div className="flex justify-around gap-10">
+        <h1 className="text-3xl text-center my-10 text-purple-400">users list</h1>
         <Link to="/admin/users/create"><button className="w-16 h-11 bg-orange-400">+ Add</button></Link>
         </div>
         <table className="w-3/4 my-8 ">
             <thead>
-                <tr>
+                <tr className="*:font-bold">
                 <td>id</td>
                 <td>username</td>
                 <td>email</td>
@@ -38,7 +38,7 @@ const Users = () => {
             data.map((row)=>{
                 console.log(row)
                 return(
-                    <tr>
+                    <tr key={row.id}>
                         <td>{row.id}</td>
                         <td>{row.username}</td>
                         <td>{row.email}</td>
