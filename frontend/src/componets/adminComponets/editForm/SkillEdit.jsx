@@ -27,7 +27,7 @@ const SkillEdit = () => {
 
         let raw = JSON.stringify({
                         "name":  name,
-                        "expertiseLevel": expertiseLevel,
+                        "expertiselevel": expertiseLevel,
                         "iconname": iconName,
                         "id": id 
                         });
@@ -38,7 +38,7 @@ const SkillEdit = () => {
         body: raw,
          redirect: "follow"
         };
-
+        console.log(raw)
         try {
             const response = await fetch("http://localhost/portfoliobackend/index.php/skills/list",requestOptions);
             const result = await response.json();

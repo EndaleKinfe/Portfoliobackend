@@ -7,6 +7,7 @@ const CarosolEdit = () => {
     const [description, setDescription] = useState("");
     const [imageLink, setImageLink] = useState("") 
     const {id} = useParams()
+    const [response , setResponse] = useState(null);
 
     function handleTitle(e){
         setTitle(e.target.value);
@@ -28,17 +29,18 @@ const CarosolEdit = () => {
         let raw = JSON.stringify({
                         "title":  title,
                         "description": description,
-                        "image_link": icon,
+                        "image_link": imageLink,
                         "id": id 
                         });
 
         const requestOptions = {
+            mode: "cors",
         method: reqMethod,
         headers: myHeaders,
         body: raw,
          redirect: "follow"
         };
-
+        console.log(raw)
         try {
             const response = await fetch("http://localhost/portfoliobackend/index.php/carosels/list",requestOptions);
             const result = await response.json();
@@ -51,6 +53,7 @@ const CarosolEdit = () => {
 
     return ( <>
                 <Navbar/> <h1 className="text-3xl text-center my-10 text-purple-400" >Edit carosel</h1>
+                {response && <div className="w-80 h-10 bg-green-500 text-black">{response.message}</div>}
                 <form onSubmit={handlesubmit} className=' w-5/6 lg:w-1/2 bg-slate-500 rounded-xl flex flex-col justify-center items-center p-10 gap-7 mx-auto md:w-[450px]'>
 
                     <input className='border-solid border-purple-400 items-center h-10 p-2 rounded-md w-5/6 md:w-96 mb-5 text-slate-700' 

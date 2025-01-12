@@ -24,6 +24,8 @@ class UserController extends Controller{
         }
         else if ($this->reqest_method == "DELETE") {
             $this->delete();
+        } else if ($this->reqest_method == "OPTIONS") {
+            $this->responseHeaders = ['Content-Type: application/json', 'HTTP/1.1 204 No Content'];
         }
         else{
             $this->error_resopnse =  json_encode(["message"=>'unsupported request method']);

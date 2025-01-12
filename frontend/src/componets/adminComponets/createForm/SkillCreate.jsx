@@ -25,7 +25,7 @@ const SkillCreate = () => {
 
         let raw = JSON.stringify({
                         "name":  name,
-                        "expertiseLevel": expertiseLevel,
+                        "expertiselevel": expertiseLevel,
                         "iconname": iconName,
                         });
 

@@ -27,7 +27,11 @@ class CaroselController extends Controller
             $this->put();
         } else if ($this->reqest_method == "DELETE") {
             $this->delete();
-        } else {
+        }
+        else if($this->reqest_method == "OPTIONS"){
+            $this->responseHeaders = ['Content-Type: application/json', 'HTTP/1.1 204 No Content'];
+        }
+        else {
             $this->error_resopnse =  json_encode(["message" => 'unsupported request method']);
             $this->strErrorHeader = ['Content-Type: application/json', 'HTTP/1.1 422 Unprocessable Entity'];
         }

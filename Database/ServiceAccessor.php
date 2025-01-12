@@ -31,7 +31,7 @@ class ServiceAccessor extends Database{
             $service = new Service();
             $service->set_id($row["id"]);
             $service->set_name($row["name"]);
-            $service->get_description($row["description"]);
+            $service->set_description($row["description"]);
             $service->set_icon($row["iconname"]);
             $servicearray[] = $service;
         }
